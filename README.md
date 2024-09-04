@@ -15,6 +15,15 @@ kup install kontrol
 
 For more information you can visit the [`kup` repo](https://github.com/runtimeverification/kup) and the [`kup` cheatsheet](https://docs.runtimeverification.com/kontrol/cheatsheets/kup-cheatsheet).
 
+## Using Docker Instead
+
+We also provide a docker image with all the commands already executed in case you want to walk through the instructions provided but don't want to compute the examples yourself.
+
+To get the docker image and run a bash shell do
+```shell
+docker run -it ghcr.io/runtimeverification/kontrol/kontrol-mantle-workshop
+```
+
 ### Kontrol usage
 
 To build the examples, run the following command in the root of this repo:
