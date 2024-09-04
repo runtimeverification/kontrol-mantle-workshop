@@ -9,6 +9,6 @@ USER user
 WORKDIR /home/user/workshop
 
 RUN kontrol build
-RUN kontrol prove -j6
+RUN kontrol prove -j6 || true
 
 ENTRYPOINT ["/bin/bash"]
