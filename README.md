@@ -1,66 +1,67 @@
-## Foundry
+Kontrol Workshop for Mantle Devs
+-------------------------
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+In this repo you'll find the examples covered in the Kontrol Dev Tooling Session for Mantle devs.
 
-Foundry consists of:
+## Getting Kontrol
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+We recommend installing Kontrol via the K framework package manager, `kup`.
 
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
+To get `kup` and install Kontrol:
 ```shell
-$ forge build
+bash <(curl https://kframework.org/install)
+kup install kontrol
 ```
 
-### Test
+For more information you can visit the [`kup` repo](https://github.com/runtimeverification/kup) and the [`kup` cheatsheet](https://docs.runtimeverification.com/kontrol/cheatsheets/kup-cheatsheet).
 
+### Kontrol usage
+
+To build the examples, run the following command in the root of this repo:
 ```shell
-$ forge test
+kontrol build
 ```
 
-### Format
-
+Then, to run all proofs (functions starting from `test`, `prove`, or `check`), run:
 ```shell
-$ forge fmt
+kontrol prove
 ```
 
-### Gas Snapshots
-
+You can also run several proofs in parallel by using the `-jN` flag, where `N` is the number of parallel processes you want to run:
 ```shell
-$ forge snapshot
+kontrol prove -j7
 ```
 
-### Anvil
-
+To run a specific proof, you can provide the name of the function or a prefix as an `--mt` argument:
 ```shell
-$ anvil
+kontrol prove --mt PortalTest.test_withdrawalPaused
 ```
 
-### Deploy
+Both `kontrol prove` and `kontrol build` invocations are parametrized by the [kontrol.toml](kontrol.toml) file.
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+## Documentation, Socials and Posts
 
-### Cast
+Have more appetite for formal verification and Kontrol? The following resources will sort you out!
 
-```shell
-$ cast <subcommand>
-```
+### Kontrol ecosystem
 
-### Help
+Get to know Kontrol more in depth. Open a PR or an issue!
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+- [Kontrol documentation](https://docs.runtimeverification.com/kontrol/cheatsheets/kup-cheatsheet)
+- [Kontrol repo](https://github.com/runtimeverification/kontrol)
+
+### Socials
+
+You can reach us on any of these platforms. We'll answer any questions and provide guidance throughout your Kontrol journey!
+
+- [Telegram](https://t.me/rv_kontrol)
+- [Discord](https://discord.com/invite/CurfmXNtbN)
+- [Twitter/X](https://x.com/rv_inc)
+
+### Blog Posts
+
+Want to learn more about Kontrol, formal verification, and the cool things we do? Read any of these posts!
+
+- [Kontrol 101](https://runtimeverification.com/blog/kontrol-101)
+- [Why does Formal Verification work?](https://runtimeverification.com/blog/formal-verification-lore)
+- [Optimism's pausability system verification](https://runtimeverification.com/blog/kontrol-integrated-verification-of-the-optimism-pausability-mechanism)
